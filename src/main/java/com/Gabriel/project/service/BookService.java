@@ -9,20 +9,39 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Book service.
+ */
 @Service
 public class BookService {
     private final BookRepository bookRepository;
 
+    /**
+     * Instantiates a new Book service.
+     *
+     * @param bookRepository the book repository
+     */
     @Autowired
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
 
+    /**
+     * Gets books.
+     *
+     * @return the books
+     */
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
 
+    /**
+     * Add new book book.
+     *
+     * @param book the book
+     * @return the book
+     */
     public Book addNewBook(Book book) {
         Optional<Book> bookOptional = bookRepository.findBooksByNameContainingIgnoreCase(book.getName());
 
@@ -33,6 +52,11 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    /**
+     * Delete book.
+     *
+     * @param bookID the book id
+     */
     public void deleteBook(Integer bookID) {
         boolean exists = bookRepository.existsById(bookID);
         if(!exists){
@@ -41,6 +65,14 @@ public class BookService {
         bookRepository.deleteById(bookID);
     }
 
+    /**
+     * Update book.
+     *
+     * @param bookID   the book id
+     * @param name     the name
+     * @param author   the author
+     * @param quantity the quantity
+     */
     @Transactional
     public void updateBook(Integer bookID, String name, String author, Integer quantity) {
         Book book = bookRepository.findById(bookID)

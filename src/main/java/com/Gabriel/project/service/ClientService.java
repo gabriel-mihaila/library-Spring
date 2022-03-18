@@ -9,20 +9,39 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Client service.
+ */
 @Service
 public class ClientService {
 
     private final ClientRepository clientRepository;
 
+    /**
+     * Instantiates a new Client service.
+     *
+     * @param clientRepository the client repository
+     */
     @Autowired
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
+    /**
+     * Get clients list.
+     *
+     * @return the list
+     */
     public List<Client> getClients(){
         return clientRepository.findAll();
     }
 
+    /**
+     * Add new client client.
+     *
+     * @param client the client
+     * @return the client
+     */
     public Client addNewClient(Client client) {
         Optional<Client> clientByEmail = clientRepository.findByEmail(client.getEmail());
 
@@ -32,6 +51,11 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
+    /**
+     * Delete client.
+     *
+     * @param clientID the client id
+     */
     public void deleteClient(Integer clientID) {
         boolean exists = clientRepository.existsById(clientID);
         if(!exists){
@@ -40,6 +64,15 @@ public class ClientService {
         clientRepository.deleteById(clientID);
     }
 
+    /**
+     * Update client.
+     *
+     * @param clientID the client id
+     * @param name     the name
+     * @param email    the email
+     * @param address  the address
+     * @param age      the age
+     */
     @Transactional
     public void updateClient(Integer clientID, String name, String email, String address, Integer age) {
         Client client = clientRepository.findById(clientID)

@@ -7,26 +7,50 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The type Borrow controller.
+ */
 @RestController
 @RequestMapping(path = "api/borrow")
 public class BorrowController {
     private final BorrowService borrowService;
 
+    /**
+     * Instantiates a new Borrow controller.
+     *
+     * @param borrowService the borrow service
+     */
     @Autowired
     public BorrowController(BorrowService borrowService) {
         this.borrowService = borrowService;
     }
 
+    /**
+     * Get borrows list.
+     *
+     * @return the list
+     */
     @GetMapping(path = "search")
     public List<Borrow> getBorrows(){
         return borrowService.getBorrows();
     }
 
+    /**
+     * Add new borrow borrow.
+     *
+     * @param borrow the borrow
+     * @return the borrow
+     */
     @PostMapping(path = "add")
     public Borrow addNewBorrow(@RequestBody Borrow borrow) {
         return borrowService.addNewBorrow(borrow);
     }
 
+    /**
+     * Delete borrow.
+     *
+     * @param borrowID the borrow id
+     */
     @DeleteMapping(path = "delete/{borrowID}")
     public void deleteBorrow(@PathVariable("borrowID") Integer borrowID){
         borrowService.deleteBorrow(borrowID);

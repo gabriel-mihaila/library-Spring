@@ -10,24 +10,45 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * The type Borrow service.
+ */
 @Service
 public class BorrowService {
     private final BorrowRepository borrowRepository;
     private final BookRepository bookRepository;
 
+    /**
+     * Instantiates a new Borrow service.
+     *
+     * @param borrowRepository the borrow repository
+     * @param bookRepository   the book repository
+     */
     @Autowired
     public BorrowService(BorrowRepository borrowRepository, BookRepository bookRepository) {
         this.borrowRepository = borrowRepository;
         this.bookRepository = bookRepository;
     }
 
+    /**
+     * Gets borrows.
+     *
+     * @return the borrows
+     */
     public List<Borrow> getBorrows() {
         return borrowRepository.findAll();
     }
 
+    /**
+     * Add new borrow borrow.
+     *
+     * @param borrow the borrow
+     * @return the borrow
+     */
     @Transactional
     public Borrow addNewBorrow(Borrow borrow) {
-        Book book = bookRepository.findById(borrow.getBookID().getId()).orElseThrow(() -> new IllegalStateException("Book with id " + borrow.getBookID().getId() + " does not exists"));
+        Book book = bookRepository.findById(borrow.getBookID().getId()).orElseThrow(()
+                -> new IllegalStateException("Book with id " + borrow.getBookID().getId() + " does not exists"));
         if(book.getQuantity() < borrow.getQuantity())
             throw new IllegalStateException("Insufficiently sold");
         Integer newQuantity = book.getQuantity() - borrow.getQuantity();
@@ -35,6 +56,11 @@ public class BorrowService {
         return borrowRepository.save(borrow);
     }
 
+    /**
+     * Delete borrow.
+     *
+     * @param borrowID the borrow id
+     */
     @Transactional
     public void deleteBorrow(Integer borrowID) {
         boolean exists = borrowRepository.existsById(borrowID);

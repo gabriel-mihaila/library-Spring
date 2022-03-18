@@ -7,32 +7,64 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The type Book controller.
+ */
 @RestController
 @RequestMapping(path = "api/book")
 public class BookController {
 
     private final BookService bookService;
 
+    /**
+     * Instantiates a new Book controller.
+     *
+     * @param bookService the book service
+     */
     @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
+    /**
+     * Get books list.
+     *
+     * @return the list
+     */
     @GetMapping(path = "search")
     public List<Book> getBooks(){
         return bookService.getBooks();
     }
 
+    /**
+     * Add new book book.
+     *
+     * @param book the book
+     * @return the book
+     */
     @PostMapping(path = "add")
     public Book addNewBook(@RequestBody Book book) {
         return bookService.addNewBook(book);
     }
 
+    /**
+     * Delete book.
+     *
+     * @param bookID the book id
+     */
     @DeleteMapping(path = "delete/{bookID}")
     public void deleteBook(@PathVariable("bookID") Integer bookID){
         bookService.deleteBook(bookID);
     }
 
+    /**
+     * Update book.
+     *
+     * @param bookID   the book id
+     * @param name     the name
+     * @param author   the author
+     * @param quantity the quantity
+     */
     @PutMapping(path = "update/{bookID}")
     public void updateBook(@PathVariable("bookID") Integer bookID, @RequestParam(required = false) String name, @RequestParam(required = false) String author, @RequestParam(required = false) Integer quantity){
         bookService.updateBook(bookID, name, author, quantity);
