@@ -9,6 +9,9 @@ Proiectul reprezinta o biblioteca online unde clientii pot imprumuta diferite ca
 ## Baza de date
 ![image](https://user-images.githubusercontent.com/72153726/158917259-e268acef-23d1-4612-8538-085907cec80f.png)
 
+## Diagrama UML
+![image](https://user-images.githubusercontent.com/72153726/167049127-4d03f756-c6bd-49ad-ba81-38395d349e0c.png)
+
 ## Functionalitati (exemple)
 Functionalitatile implementate pana acum sunt operatiile de insert, update, delete, precum si getAll pentru fiecare tabela in parte.
 
