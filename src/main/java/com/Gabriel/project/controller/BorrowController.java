@@ -2,6 +2,8 @@ package com.Gabriel.project.controller;
 
 import com.Gabriel.project.model.Borrow;
 import com.Gabriel.project.service.BorrowService;
+import com.Gabriel.project.service.ServiceFactory;
+import com.Gabriel.project.service.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +17,16 @@ import java.util.List;
 public class BorrowController {
     private final BorrowService borrowService;
 
+
     /**
      * Instantiates a new Borrow controller.
      *
-     * @param borrowService the borrow service
+     * @param serviceFactory the service factory
      */
     @Autowired
-    public BorrowController(BorrowService borrowService) {
-        this.borrowService = borrowService;
+    public BorrowController(ServiceFactory serviceFactory) {
+
+        this.borrowService = (BorrowService) serviceFactory.createService(ServiceType.BORROW);
     }
 
     /**

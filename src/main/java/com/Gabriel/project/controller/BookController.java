@@ -2,6 +2,8 @@ package com.Gabriel.project.controller;
 
 import com.Gabriel.project.model.Book;
 import com.Gabriel.project.service.BookService;
+import com.Gabriel.project.service.ServiceFactory;
+import com.Gabriel.project.service.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +18,16 @@ public class BookController {
 
     private final BookService bookService;
 
+
     /**
      * Instantiates a new Book controller.
      *
-     * @param bookService the book service
+     * @param serviceFactory the service factory
      */
     @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+    public BookController(ServiceFactory serviceFactory) {
+
+        this.bookService = (BookService) serviceFactory.createService(ServiceType.BOOK);
     }
 
     /**

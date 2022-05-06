@@ -21,7 +21,7 @@ public class Book {
     private Integer id;
     private String name;
     private String author;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Category category;
     private Integer quantity;
 

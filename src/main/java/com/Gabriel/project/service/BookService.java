@@ -13,7 +13,7 @@ import java.util.Optional;
  * The type Book service.
  */
 @Service
-public class BookService {
+public class BookService extends BasicService{
     private final BookRepository bookRepository;
 
     /**
@@ -21,7 +21,6 @@ public class BookService {
      *
      * @param bookRepository the book repository
      */
-    @Autowired
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }

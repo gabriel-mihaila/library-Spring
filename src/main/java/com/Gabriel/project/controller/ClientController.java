@@ -2,6 +2,8 @@ package com.Gabriel.project.controller;
 
 import com.Gabriel.project.model.Client;
 import com.Gabriel.project.service.ClientService;
+import com.Gabriel.project.service.ServiceFactory;
+import com.Gabriel.project.service.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +18,16 @@ public class ClientController {
 
     private final ClientService clientService;
 
+
     /**
      * Instantiates a new Client controller.
      *
-     * @param clientService the client service
+     * @param serviceFactory the service factory
      */
     @Autowired
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
+    public ClientController(ServiceFactory serviceFactory) {
+
+        this.clientService = (ClientService) serviceFactory.createService(ServiceType.CLIENT);
     }
 
     /**

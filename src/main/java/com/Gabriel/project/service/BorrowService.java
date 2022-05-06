@@ -4,6 +4,7 @@ import com.Gabriel.project.model.Book;
 import com.Gabriel.project.model.Borrow;
 import com.Gabriel.project.repository.BookRepository;
 import com.Gabriel.project.repository.BorrowRepository;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,7 @@ import java.util.List;
  * The type Borrow service.
  */
 @Service
-public class BorrowService {
+public class BorrowService extends BasicService {
     private final BorrowRepository borrowRepository;
     private final BookRepository bookRepository;
 
@@ -24,7 +25,6 @@ public class BorrowService {
      * @param borrowRepository the borrow repository
      * @param bookRepository   the book repository
      */
-    @Autowired
     public BorrowService(BorrowRepository borrowRepository, BookRepository bookRepository) {
         this.borrowRepository = borrowRepository;
         this.bookRepository = bookRepository;

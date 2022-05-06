@@ -2,6 +2,7 @@ package com.Gabriel.project.service;
 
 import com.Gabriel.project.model.Category;
 import com.Gabriel.project.repository.CategoryRepository;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import java.util.Optional;
  * The type Category service.
  */
 @Service
-public class CategoryService {
+public class CategoryService extends BasicService {
     private final CategoryRepository categoryRepository;
 
     /**
@@ -21,7 +22,6 @@ public class CategoryService {
      *
      * @param categoryRepository the category repository
      */
-    @Autowired
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }

@@ -13,7 +13,7 @@ import java.util.Optional;
  * The type Client service.
  */
 @Service
-public class ClientService {
+public class ClientService extends BasicService {
 
     private final ClientRepository clientRepository;
 

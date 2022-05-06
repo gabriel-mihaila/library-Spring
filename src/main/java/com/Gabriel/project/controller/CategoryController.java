@@ -2,6 +2,8 @@ package com.Gabriel.project.controller;
 
 import com.Gabriel.project.model.Category;
 import com.Gabriel.project.service.CategoryService;
+import com.Gabriel.project.service.ServiceFactory;
+import com.Gabriel.project.service.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +18,15 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
+
     /**
      * Instantiates a new Category controller.
      *
-     * @param categoryService the category service
+     * @param serviceFactory the service factory
      */
     @Autowired
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public CategoryController(ServiceFactory serviceFactory) {
+        this.categoryService = (CategoryService) serviceFactory.createService(ServiceType.CATEGORY);
     }
 
     /**
