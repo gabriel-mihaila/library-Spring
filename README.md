@@ -40,3 +40,17 @@ Functionalitatile implementate pana acum sunt operatiile de insert, update, dele
   ![image](https://user-images.githubusercontent.com/72153726/158918296-e89bd0e3-7610-4d72-b9c5-12764694062a.png)
 
   Inainte de a actualiza numele categoriei, ma asigur ca aceasta exista in baza de date. Daca exista, voi modifica numele doar daca acesta nu e null si este diferit fata de numele curent.
+  
+  ## Factory Pattern
+  In cadrul proiectului am folosit Factory Pattern pentru a construi partea de service. Concret am un enum unde imi notez fiecare tip de service si pe baza tipului respectiv, in cadrul clasei ServiceFactory, imi construiesc service-ul de care am nevoie. In pachetul de controllere voi invoca fiecare service in parte.
+  
+  ## Unit teste
+  Am unit teste pentru a valida:
+  - verific in baza de date a clientului daca exista un anumit email;
+  - verific daca exista o anumita categorie;
+  - verifica daca exista o anumita carte;
+  - verific functionalitatea selectarii tuturor clientilor;
+  - verific functionalitatea selectarii tuturor cartilor;
+  - verific functionalitatea selectarii tuturor categoriilor;
+  - verific functionalitatea selectarii tuturor imprumuturilor;
+  - verific inserarea unui client;
