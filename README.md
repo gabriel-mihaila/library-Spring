@@ -21,7 +21,7 @@ La nivelul diagramei UML am reprezentat urmatoarele relatii intre clase:
 - Clasa Book are un atribut de categorie, o alta clasa independenta din cadrul pachetului de modele. Astfel, intre cele 2 clase am o legatura de compozitie.
 - Cum exista intre tabela Client si tabela Book o relatie de Many To Many, mi-am costruit o clasa aditionala numita Borrow unde imi stochez toate achizitiile din cadrul librariei, facand legatura intre client_id si book_id, retinand si cantitatea de carti cumparata. Astfel, intre clasa Book si Borrow, precum si intre clasa Client si Borrow existao legatura tare, de compozitie.
 - In cadrul pattern-ului Factory am o clasa abstracta care coreleaza fiecare service in parte, avand intre clasa BasicService si restul claselor de service o relatie de asociere.
-- La trecerea intre fiecare pachete, fiind foarte importante legaturile dintre el, am o relatie de compozitie.
+- La trecerea intre fiecare pachete, fiind foarte importante legaturile dintre ele, am o relatie de compozitie.
 
 ## Functionalitati (exemple)
 Functionalitatile implementate pana acum sunt operatiile de insert, update, delete, precum si getAll pentru fiecare tabela in parte.
