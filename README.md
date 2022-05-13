@@ -9,8 +9,19 @@ Proiectul reprezinta o biblioteca online unde clientii pot imprumuta diferite ca
 ## Baza de date
 ![image](https://user-images.githubusercontent.com/72153726/158917259-e268acef-23d1-4612-8538-085907cec80f.png)
 
+La nivelul bazei de date am 3 tabele: 
+- tabela Client in care sunt stocatii clientii ce pot avea acces la carti;
+- tabela Book in care sunt stocate toate cartile existente in cadrul librariei;
+- tabela Borrow in care retin fiecare achizitie realizata de catre un client (tabela in care leg tabelele Client si Book si client_id si book_id).
+
 ## Diagrama UML
 ![image](https://user-images.githubusercontent.com/72153726/167049127-4d03f756-c6bd-49ad-ba81-38395d349e0c.png)
+
+La nivelul diagramei UML am reprezentat urmatoarele relatii intre clase:
+- Clasa Book are un atribut de categorie, o alta clasa independenta din cadrul pachetului de modele. Astfel, intre cele 2 clase am o legatura de compozitie.
+- Cum exista intre tabela Client si tabela Book o relatie de Many To Many, mi-am costruit o clasa aditionala numita Borrow unde imi stochez toate achizitiile din cadrul librariei, facand legatura intre client_id si book_id, retinand si cantitatea de carti cumparata. Astfel, intre clasa Book si Borrow, precum si intre clasa Client si Borrow existao legatura tare, de compozitie.
+- In cadrul pattern-ului Factory am o clasa abstracta care coreleaza fiecare service in parte, avand intre clasa BasicService si restul claselor de service o relatie de asociere.
+- La trecerea intre fiecare pachete, fiind foarte importante legaturile dintre el, am o relatie de compozitie.
 
 ## Functionalitati (exemple)
 Functionalitatile implementate pana acum sunt operatiile de insert, update, delete, precum si getAll pentru fiecare tabela in parte.
