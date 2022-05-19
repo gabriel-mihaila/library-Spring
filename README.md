@@ -71,11 +71,14 @@ Functionalitatile implementate pana acum sunt operatiile de insert, update, dele
   - pagina de start
   ![image](https://user-images.githubusercontent.com/72153726/169420552-e36a895e-efe3-44ae-add5-c25186c9f070.png)
   
+  
   - meniul principal
   ![image](https://user-images.githubusercontent.com/72153726/169421703-3347c6ed-5c43-4472-8c5f-21d26aeb4136.png)
   
+  
   - pagina de clienti
   ![image](https://user-images.githubusercontent.com/72153726/169421903-5e7e1443-eb4a-4cdc-a28a-21371b0c4fa0.png)
+  
   
   - pagina de carti
   ![image](https://user-images.githubusercontent.com/72153726/169421944-1e2934cb-e919-465f-8a13-1bdc26528160.png)
