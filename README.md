@@ -68,6 +68,7 @@ Functionalitatile implementate pana acum sunt operatiile de insert, update, dele
   
   ## Front-ul aplicatiei
   In ceea ce priveste partea de front am creat urmatoarele pagini:
+  
   a) pagina de start
   ![image](https://user-images.githubusercontent.com/72153726/169420552-e36a895e-efe3-44ae-add5-c25186c9f070.png)
   
