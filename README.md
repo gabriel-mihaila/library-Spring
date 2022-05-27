@@ -91,4 +91,13 @@ Functionalitatile implementate pana acum sunt operatiile de insert, update, dele
   
   
   ![image](https://user-images.githubusercontent.com/72153726/169421944-1e2934cb-e919-465f-8a13-1bdc26528160.png)
+  
+  ## Legatura dintre frontend si backend
+  
+  Codul backend este creat pentru a rula pe un server si nu ruleaza niciodata pe computerul utilizatorului. Frontend - partile aplicatiei dvs. web care sunt destinate sa fie utilizate direct de browserul utilizatorului. Cod care este executat in interiorul browserului sau marcaj care este interpretat in timpul redarii unei pagini.
+  Pentru a putea avea acces la baza de date de pe frontend am apelat la clasa Retrofit. 
+  Retrofit transforma API-ul dvs. HTTP intr-o interfata Java. Adnotarile privind metodele de interfata si parametrii care indica modul in care va fi tratata sau solicitarea. Fiecare metoda trebuie sa aiba o adnotare HTTP care furnizeaza metoda de solicitare si adresa URL relativa. Exista opt adnotari incorporate: HTTP, GET, POST, PUT, PATCH, DELETE, OPTIONS si HEAD. URL-ul relativ al resursei este specificat in adnotare.
+  
+  ![image](https://user-images.githubusercontent.com/72153726/170643307-6c8e0e93-cb78-4e29-86c6-65d8d07371bb.png)
+
 
